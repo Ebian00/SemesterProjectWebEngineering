@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<script type="module">
+    import {
+        LitElement,
+        html,
+        css,
+    } from "https://unpkg.com/lit-element/lit-element.js?module";
+
+    class UpdateArrayProperties extends LitElement {
+        static get properties() {
+            return {
+                messages: { type: Array },
+            };
+        }
+
+        constructor() {
+            super();
+
+            this.messages = ["HTML", "CSS", "JavaScript", "Others"];
+        }
+
+        render() {
+            return html`<div class="table">
+            <ul class="horizontal-list">
+              ${this.messages.map(
+                (item) =>
+                    html`<li><button id="strict_mode">${item}</button></li>`
+            )}
+            </ul>
+          </div>
+          Messages: [${this.messages.join(", ")}]
+          <input id="messageInput" placeholder="message" />
+          <button @click="${() => this._onMessageSubmitA()}">
+            Add message
+          </button> `;
+        }
+
+        _getInput() {
+            const input = this.shadowRoot.getElementById("messageInput");
+            const value = input.value;
+            input.value = "";
+            return value;
+        }
+
+        _onMessageSubmitA() {
+            const message = this._getInput();
+            if (message && message.length) {
+                this.messages.push(message);
+                this.requestUpdate();
+            }
+        }
+
+        _onMessageSubmitB() {
+            const message = this._getInput();
+            if (message && message.length) {
+                this.messages = [...this.messages, message];
+            }
+        }
+        static get styles() {
+            return css`
+          .menu-outer {
+            height: 84px;
+            background: url(images/bar-bg.jpg) repeat-x;
+          }
+
+          .table {
+            display: table; /* Allow the centering to work */
+            margin: 3;
+            height: 84px;
+            background: url(images/bar-bg.jpg) repeat-x;
+          }
+          ul {
+            min-width: 696px;
+            list-style: none;
+            padding-top: 20px;
+          }
+          li {
+            display: inline;
+          }
+        `;
+        }
+    }
+
+    customElements.define("x-update-array-properties", UpdateArrayProperties);
+</script>
+
+<head>
+    <title>Page Title</title>
+    <style></style>
+</head>
+
+<body>
+    <x-update-array-properties></x-update-array-properties>
+</body>
+
+</html>

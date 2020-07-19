@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<script type="module">
+    import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
+
+    class UpdateArrayProperties extends LitElement {
+
+        static get properties() {
+            return {
+                messages: { type: Array },
+            }
+        }
+
+        constructor() {
+            super();
+
+            this.messages = ['HTML', 'CSS', 'JavaScript', 'Others'];
+            this.messageses = ['HTML', 'CSS', 'JavaScript', 'Others'];
+        }
+
+        render() {
+            return html`
+             <div class='table'>
+             <button  @click="${this.clickHandlerHTML.bind(this)}" id = '${this.messages[0]}'  > ${this.messages[0]} </button>
+             <button  @click="${this.clickHandlerCSS.bind(this)}" id = '${this.messages[1]}'  > ${this.messages[1]} </button>
+             <button  @click="${this.clickHandlerJS.bind(this)}" id = '${this.messages[2]}'  > ${this.messages[2]} </button>
+             <button  @click="${this.clickHandlerOTHER.bind(this)}" id = '${this.messages[3]}'  > ${this.messages[3]} </button>
+           </div>
+             `;
+        }
+        insertCheckText() {
+            document.getElementById('text').innerHTML = "check";
+
+        }
+        clickHandlerHTML() {
+            const ul = document.getElementById('ulbu');
+            ul.innerHTML = "";
+            const listItem = document.createElement('li');
+            ul.appendChild(listItem);
+            listItem.innerHTML = " <button id = 'headings' class='button1'> headings </button> ";
+            const a = document.getElementById('headings');
+            a.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from heading";
+            }
+            const listItem1 = document.createElement('li');
+            ul.appendChild(listItem1);
+            listItem1.innerHTML = " <button id = 'paragraphs' class='button1'> paragraphs </button> ";
+            const paragraphs = document.getElementById('paragraphs');
+            paragraphs.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from paragraphs";
+            }
+            const listItem2 = document.createElement('li');
+            ul.appendChild(listItem2);
+            listItem2.innerHTML = " <button id = 'links' class='button1'> links </button> ";
+            const links = document.getElementById('links');
+            links.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from links";
+            }
+            const listItem3 = document.createElement('li');
+            ul.appendChild(listItem3);
+            listItem3.innerHTML = " <button id = 'images' class='button1'> images </button> ";
+            const images = document.getElementById('images');
+            images.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from images";
+            }
+            const listItem4 = document.createElement('li');
+            ul.appendChild(listItem4);
+            listItem4.innerHTML = " <button id = 'tables' class='button1'> tables </button> ";
+            const tables = document.getElementById('tables');
+            tables.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from tables";
+
+            }
+
+        }
+        clickHandlerCSS() {
+            const ul = document.getElementById('ulbu');
+            ul.innerHTML = "";
+            const listItem = document.createElement('li');
+            ul.appendChild(listItem);
+            listItem.innerHTML = " <button id = 'selectors' class='button1'> selectors </button> ";
+            const selectors = document.getElementById('selectors');
+            selectors.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from selectors";
+            }
+            const listItem1 = document.createElement('li');
+            ul.appendChild(listItem1);
+            listItem1.innerHTML = " <button id = 'colors' class='button1'> colors </button> ";
+            const colors = document.getElementById('colors');
+            colors.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from colors";
+            }
+            const listItem2 = document.createElement('li');
+            ul.appendChild(listItem2);
+            listItem2.innerHTML = " <button id = 'boxes' class='button1'> boxes </button> ";
+            const boxes = document.getElementById('boxes');
+            boxes.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from boxes";
+            }
+            const listItem3 = document.createElement('li');
+            ul.appendChild(listItem3);
+            listItem3.innerHTML = " <button id = 'display' class='button1'> display </button> ";
+            const display = document.getElementById('display');
+            display.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from display";
+            }
+            const listItem4 = document.createElement('li');
+            ul.appendChild(listItem4);
+            listItem4.innerHTML = " <button id = 'float' class='button1'> float </button> ";
+            const float = document.getElementById('float');
+            float.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from float";
+            }
+        }
+
+
+        clickHandlerJS() {
+            const ul = document.getElementById('ulbu');
+            ul.innerHTML = "";
+            const listItem = document.createElement('li');
+            ul.appendChild(listItem);
+            listItem.innerHTML = " <button id = 'functions' class='button1'> functions </button> ";
+            const functions = document.getElementById('functions');
+            functions.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from functions";
+
+            }
+            const listItem1 = document.createElement('li');
+            ul.appendChild(listItem1);
+            listItem1.innerHTML = " <button id = 'objects' class='button1'> objects </button> ";
+            const objects = document.getElementById('objects');
+            objects.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from objects";
+            }
+            const listItem2 = document.createElement('li');
+            ul.appendChild(listItem2);
+            listItem2.innerHTML = " <button id = 'scope' class='button1'> scope </button> ";
+            const scope = document.getElementById('scope');
+            scope.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from scope";
+
+            }
+            const listItem3 = document.createElement('li');
+            ul.appendChild(listItem3);
+            listItem3.innerHTML = " <button id = 'events' class='button1'> events </button> ";
+            const events = document.getElementById('events');
+            events.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from events";
+            }
+            const listItem4 = document.createElement('li');
+            ul.appendChild(listItem4);
+            listItem4.innerHTML = " <button id = 'hoisting' class='button1'> hoisting </button> ";
+            const hoisting = document.getElementById('hoisting');
+            hoisting.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from hoisting";
+            }
+            const listItem5 = document.createElement('li');
+            ul.appendChild(listItem5);
+            listItem5.innerHTML = " <button id = 'strict_mode' class='button1'> strict_mode </button> ";
+            const strict_mode = document.getElementById('strict_mode');
+            strict_mode.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from strict_mode";
+            }
+            const listItem6 = document.createElement('li');
+            ul.appendChild(listItem6);
+            listItem6.innerHTML = " <button id = 'JSON' class='button1'> JSON </button> ";
+            const jso = document.getElementById('JSON');
+            jso.onclick = function () {
+                document.getElementById('text').innerHTML = "some text from JSON";
+            }
+
+        }
+        clickHandlerOTHER() {
+            const ul = document.getElementById('ulbu');
+            ul.innerHTML = "";
+            document.getElementById('text').innerHTML = "some text from Others";
+
+            alert('Hello from other');
+        }
+        _getInput() {
+            const input = this.shadowRoot.getElementById('messageInput');
+            const value = input.value;
+            input.value = '';
+            return value;
+        }
+
+        // Updating arrays works the same as updating objects. See object example for more info
+
+        // You can use the mutable approach, where you mutate the existing array and request an update
+        _onMessageSubmitA() {
+            const message = this._getInput();
+            if (message && message.length) {
+                this.messages.push(message);
+                this.requestUpdate();
+            }
+        }
+
+        // Or you can use the immutable approach, where a new array is created and the change is picked up
+        _onMessageSubmitB() {
+            const message = this._getInput();
+            if (message && message.length) {
+                this.messages = [...this.messages, message];
+            }
+        }
+        static get styles() {
+            return css`
+             .menu-outer {
+             height: 84px;
+             background: url(images/bar-bg.jpg) repeat-x;
+         }
+         
+         .table {
+             display: table;   /* Allow the centering to work */
+             margin: 3 ;
+           height: 84px;
+             background: url(images/bar-bg.jpg) repeat-x;
+         }
+             ul {
+             min-width: 696px;
+             list-style: none;
+             padding-top: 20px;
+             }
+              li {
+                 display: inline;
+             }
+             button {
+             margin:5px;
+	         font-size: 10px;
+             background-color: #6A709F; 
+             border: 1px solid;
+             color: white;
+             padding:5px 30px;
+             text-align: center;
+             border-radius: 10px;
+             } 
+             `;
+        }
+    }
+
+    customElements.define('x-update-array-properties', UpdateArrayProperties);
+</script>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            color: #333333;
+            display: grid;
+            margin: 5px;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: 80px 1fr 1fr 50px;
+            min-height: 90vh;
+        }
+
+        header,
+        nav,
+        main,
+        article,
+        section,
+        aside,
+        footer {
+            color: white;
+            float: left;
+            position: justify;
+            font-size: 10px bold;
+            font-family: sans-serif;
+            padding: 7px;
+        }
+
+        header {
+            border-radius: 30px 30px 0px 0px;
+            background-color: #C14F4F;
+            grid-column: 1 / span 3;
+            grid-row: 1;
+
+        }
+
+        nav {
+            background-color: #C28281;
+            grid-column: 1;
+            grid-row: 2 / 4;
+        }
+
+        article {
+            background-color: #6A9EBD;
+            grid-column: 2;
+            grid-row: 2 / 4;
+        }
+
+        a {
+            color: white;
+        }
+
+        aside {
+
+            background-color: #C28281;
+
+            grid-column: 3;
+            grid-row: 2 / 4;
+        }
+
+        footer {
+
+            border-radius: 0px 0px 30px 30px;
+            background-color: #000000;
+            position: justify;
+
+            grid-column: 1 / span 3;
+            grid-row: 4;
+        }
+
+        .button1 {
+            margin: 5px;
+            font-size: 10px;
+
+            background-color: #6A709F;
+            border: 1px solid;
+            color: white;
+            padding: 5px 30px;
+            text-align: center;
+            border-radius: 10px;
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <header> Header
+        <x-update-array-properties></x-update-array-properties>
+    </header>
+    <nav>
+        <ul id="ulbu" style="list-style-type:none"></ul>
+
+    </nav>
+    <aside id="news">
+        <a href=""></a>
+
+    </aside>
+    <article>
+        <div id='text'></div>
+
+    </article>
+
+    <footer>
+        <p>Footer:
+            <a href="#news">Sitemap</a>
+            <a href="#news">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a></p>
+
+    </footer>
+
+    <body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+
+body {
+    text-align: justify;
+	font-family: sans-serif;
+	color: #333333;
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 50px 1fr 1fr 50px;
+	min-height: 90vh;
+  
+}
+
+header,
+nav,
+main,
+article,
+section,
+aside,
+footer {
+    float: left;
+    position: relative;
+  font-size: 10px bold;
+  font-family: sans-serif;
+	border: 1px solid;
+	padding: 7px;
+	margin: 3px;
+  border-radius: 5px;
+}
+
+header {
+border: 1px solid;
+	border-color: black;
+	grid-column: 1 / span 3;
+	grid-row: 1;
+   
+}
+
+nav {
+	border: 1px solid;
+	border-color:black;
+	grid-column: 1;
+	grid-row: 2 / 4;
+}
+
+article {
+	border: 1px solid;
+	border-color:black;
+	grid-column: 2;
+	grid-row: 2 / 4;
+}
+
+aside {
+	border: 1px solid;
+	border-color:black;
+	grid-column: 3;
+  grid-row: 2 / 4;
+}
+
+footer {
+    float: left;
+    position: relative;
+	border: 1px solid;
+	border-color:black;
+	grid-column: 1 / span 3;
+	grid-row: 4;
+}
+  .button1 {
+  margin:5px;
+	font-size: 10px;
+  background-color: white; 
+  border: 1px solid;
+  color: black;
+  padding:5px 50px;
+  text-align: center;
+  border-radius: 5px;
+
+
+}
+</style>
+</head>
+
+<body>
+<header> Header 
+  </header>
+<nav>
+	<p>Nav</p>
+	 <button class="button1">Menüpunkt 1 </button>
+  <br>
+	 <button class="button1">Menüpunkt 2</button>
+  <br>
+   <button class="button1">Menüpunkt 3 </button>
+</nav>
+<aside id="news">
+	<p>Aside</p>
+	
+</aside>
+<article>
+<p>Artikel 1</p>
+  
+  </article>
+
+<footer> 
+	<p>Footer</p>
+</footer>
+
+<body>
+</html>

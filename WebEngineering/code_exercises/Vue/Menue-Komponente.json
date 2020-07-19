@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta>
+<meta charset="UTF-8">
+<title>Hello World in Vue.js</title>
+</meta>
+
+<body>
+
+    <div id="hello-world-app">
+        <ul style="list-style-type:none;  display: flex;">
+            <li v-for="title in titels"><button>{{ title }}</button></li>
+        </ul>
+
+        <ul style="list-style-type:none; ">
+            <li v-for="title in titels"><button>{{ title }}</button></li>
+        </ul>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.min.js">
+    </script>
+
+    <script>
+        new Vue({
+            el: "#hello-world-app",
+            data() {
+                return {
+                    titels: ['HTML', 'CSS', 'JAVASCRIPT', 'OTHER'],
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

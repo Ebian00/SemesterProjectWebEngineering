@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="%= BASE_URL %>favicon.ico">
+    <title>10.3</title>
+  </head>
+  <body>
+    <div class="header" id="header"><div id="app"></div></div>
+    <div class="article" id="article"></div>
+    <div class="nav" id="nav"><ul id="nav2" style="list-style-type:none" ></ul></div>
+    <div class="aside" id="aside"></div>
+    <div class="footer" id="footer"></div>
+  </body>
+</html>
+
+
+------------------------vue.js code----------------------------
+
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    btnActive: 'html',
+  },
+  mutations: {
+    html (state, str) {
+      state.btnActive = str
+
+      const ul = document.getElementById('nav2')
+      ul.style="list-style-type:none";
+      ul.innerHTML = "";
+      const listItem = document.createElement('li');
+ ul.appendChild(listItem);
+ listItem.innerHTML =   " <button id = 'headings' class='button1'> headings </button> " ; 
+ const a = document.getElementById('headings');
+ a.onclick = function (){
+   document.getElementById('article').innerHTML = "some text from heading";
+  }
+  const listItem1 = document.createElement('li');
+ ul.appendChild(listItem1);
+ listItem1.innerHTML =   " <button id = 'paragraphs' class='button1'> paragraphs </button> " ; 
+ const paragraphs = document.getElementById('paragraphs');
+ paragraphs.onclick = function (){
+  document.getElementById('article').innerHTML = "some text from paragraphs";
+  }
+  const listItem2 = document.createElement('li');
+ ul.appendChild(listItem2);
+ listItem2.innerHTML =   " <button id = 'links' class='button1'> links </button> " ; 
+ const links = document.getElementById('links');
+ links.onclick = function (){
+  document.getElementById('article').innerHTML = "some text from links";
+        }
+  const listItem3 = document.createElement('li');
+ ul.appendChild(listItem3);
+ listItem3.innerHTML =   " <button id = 'images' class='button1'> images </button> " ; 
+ const images = document.getElementById('images');
+ images.onclick = function (){
+  document.getElementById('article').innerHTML = "some text from images";
+  }
+  const listItem4 = document.createElement('li');
+ ul.appendChild(listItem4);
+ listItem4.innerHTML =   " <button id = 'tables' class='button1'> tables </button> " ; 
+ const tables = document.getElementById('tables');
+ tables.onclick = function (){
+  document.getElementById('article').innerHTML = "some text from tables";
+    }
+  },
+    css (state, str) {
+      state.btnActive = str
+      const ul = document.getElementById('nav2');
+            ul.innerHTML = "";
+            const listItem = document.createElement('li');
+       ul.appendChild(listItem);
+       listItem.innerHTML =   " <button id = 'selectors' class='button1'> selectors </button> " ; 
+       const selectors = document.getElementById('selectors');
+       selectors.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from selectors";
+        }
+        const listItem1 = document.createElement('li');
+       ul.appendChild(listItem1);
+       listItem1.innerHTML =   " <button id = 'colors' class='button1'> colors </button> " ; 
+       const colors = document.getElementById('colors');
+       colors.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from colors";
+        }
+        const listItem2 = document.createElement('li');
+       ul.appendChild(listItem2);
+       listItem2.innerHTML =   " <button id = 'boxes' class='button1'> boxes </button> " ; 
+       const boxes = document.getElementById('boxes');
+       boxes.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from boxes";
+        }
+        const listItem3 = document.createElement('li');
+       ul.appendChild(listItem3);
+       listItem3.innerHTML =   " <button id = 'display' class='button1'> display </button> " ; 
+       const display = document.getElementById('display');
+       display.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from display";
+        }
+        const listItem4 = document.createElement('li');
+       ul.appendChild(listItem4);
+       listItem4.innerHTML =   " <button id = 'float' class='button1'> float </button> " ; 
+       const float = document.getElementById('float');
+       float.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from float";
+        }
+      },
+    js(state,str){
+      state.btnActive = str
+      const ul = document.getElementById('nav2');
+            ul.innerHTML = "";
+            const listItem = document.createElement('li');
+       ul.appendChild(listItem);
+       listItem.innerHTML =   " <button id = 'functions' class='button1'> functions </button> " ; 
+       const functions = document.getElementById('functions');
+       functions.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from functions";
+
+        }
+        const listItem1 = document.createElement('li');
+       ul.appendChild(listItem1);
+       listItem1.innerHTML =   " <button id = 'objects' class='button1'> objects </button> " ; 
+       const objects = document.getElementById('objects');
+       objects.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from objects";
+        }
+        const listItem2 = document.createElement('li');
+       ul.appendChild(listItem2);
+       listItem2.innerHTML =   " <button id = 'scope' class='button1'> scope </button> " ; 
+       const scope = document.getElementById('scope');
+       scope.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from scope";
+
+        }
+        const listItem3 = document.createElement('li');
+       ul.appendChild(listItem3);
+       listItem3.innerHTML =   " <button id = 'events' class='button1'> events </button> " ; 
+       const events = document.getElementById('events');
+       events.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from events";
+        }
+        const listItem4 = document.createElement('li');
+       ul.appendChild(listItem4);
+       listItem4.innerHTML =   " <button id = 'hoisting' class='button1'> hoisting </button> " ; 
+       const hoisting = document.getElementById('hoisting');
+       hoisting.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from hoisting";
+        }
+        const listItem5 = document.createElement('li');
+       ul.appendChild(listItem5);
+       listItem5.innerHTML =   " <button id = 'strict_mode' class='button1'> strict_mode </button> " ; 
+       const strict_mode = document.getElementById('strict_mode');
+       strict_mode.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from strict_mode";
+        }
+        const listItem6 = document.createElement('li');
+       ul.appendChild(listItem6);
+       listItem6.innerHTML =   " <button id = 'JSON' class='button1'> JSON </button> " ; 
+       const jso = document.getElementById('JSON');
+       jso.onclick = function (){
+        document.getElementById('article').innerHTML = "some text from JSON";
+        }
+    },
+    other(){
+      document.getElementById('nav2').innerHTML='';
+      document.getElementById('article').innerHTML = "some text from Others";
+    }
+  },
+  actions: {
+    changeToHtml ({commit}, str) {
+      commit('html', str)
+  
+    },
+    changeToCss ({commit}, str) {
+        commit('css', str)
+      },
+      changeToJS ({commit}, str) {
+        commit('js', str)
+      } ,
+      changeToOthers ({commit}) {
+        commit('other')
+      }
+
+  },
+  modules: {
+  },
+  getters: {
+    counter (state) {
+      return state.btnActive
+    }
+  }
+})

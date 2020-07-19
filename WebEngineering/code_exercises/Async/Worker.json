@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Async</title>
+</head>
+
+<body>
+    <button id='show'>click to call the worker</button>
+    <div id="result"></div>
+    <div id="result2"></div>
+    <script>
+        let arr = [];
+        var time;
+        const worker = new Worker('./check.js');
+        const button = document.getElementById('show');
+        button.addEventListener('click', function (e) {
+            time = Date.now(); // milliseconds
+
+            worker.postMessage('start');
+
+        });
+        worker.addEventListener('message', function (e) {
+            document.getElementById('result2').innerHTML = (' with worker ended in : ' + e.data + ' seconds')
+        });
+        while (arr.length < 10000) {
+            var r = Math.floor(Math.random() * 10000) + 1;
+            if (arr.indexOf(r) === -1) arr.push(r);
+        }
+        var start = Date.now(); // milliseconds
+        arr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log('ended in : ', -(start - Date.now()) / 1000, ' seconds');
+        document.getElementById('result').innerHTML = (' main ended in : ' + (Date.now() - start) / 1000 + ' seconds')
+    </script>
+</body>
+
+</html>

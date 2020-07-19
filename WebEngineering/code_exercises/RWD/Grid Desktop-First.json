@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+*, html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.wrapper {
+    display: grid; 
+  inline-grid;
+  grid-column-gap: 7px;
+  grid-row-gap: 10px;
+  grid-template-columns: 20fr 60fr 20fr ;  
+  grid-template-rows: 5rem 60vh;   
+  grid-template-areas: 
+    "header header header " 
+    "left article right"; } 
+}
+  .header { grid-area: header; } aside.left { grid-area: left; } article { grid-area: article; } aside.right { grid-area: right; } .white{grid-area:white;}
+wrapper > * {
+  margin: 4px;
+  
+}
+.header {
+  background: red;
+ grid-column: 1 / -1;
+}
+.article {
+  background: blue;
+}
+.left {
+
+  background : #2CEE27;
+}
+.right {
+   background : #EA3EFE;
+}
+  .white {
+   background : white;
+}
+@media screen and (max-width: 600px) { 
+  .wrapper {
+   grid-template-columns: 20fr 80fr ;  
+  grid-template-rows: 5rem 60vh  5rem;   
+  grid-template-areas: 
+    "header header  " 
+    "left article "
+  "right right"; } 
+  }
+@media screen and (max-width: 300px) {    
+  .wrapper {
+   grid-template-columns: 1fr ;  
+  grid-template-rows: 5rem  5rem 60vh  5rem;   
+  grid-template-areas: 
+    "header" 
+    "left"
+    "article"
+  "right"; } 
+  .article {
+  background: blue;
+}
+  }
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body >
+  <div class="wrapper">
+  <header class="header" ></header>
+   <aside class="left"></aside>
+  <article  class="article"></article>
+  <aside class="right"></aside>
+  </div>
+  </body>
+</html>

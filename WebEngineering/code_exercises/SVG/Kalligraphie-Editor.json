@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        import {
+            LitElement,
+            svg,
+            css,
+        } from "https://unpkg.com/lit-element?module";
+
+        class Calligraphy extends LitElement {
+            static get styles() {
+                return css`
+            svg {
+              border: solid thin;
+            }
+          `;
+            }
+
+            static get properties() {
+                return {
+                    paths: { type: Array },
+                };
+            }
+
+            constructor() {
+                super();
+                this.paths = [];
+            }
+
+            render() {
+                console.log("render");
+                return svg`
+        <svg @mousedown="${this.write}" viewBox="0 0 500 500">
+          ${this.paths.map((path) => this._getPath())}
+        </svg>
+      `;
+            }
+
+            _getPath() {
+                console.log(
+                    this.paths.length,
+                    this.shadowRoot.querySelectorAll("path").length
+                );
+                return this.paths.map((path) => {
+                    return svg`
+        <path fill-opacity="0.4" stroke="black" stroke-width="1" d="${path.map(
+                        (point, i) =>
+                            i === 0 ? `M ${point.x},${point.y}` : `L ${point.x},${point.y}`
+                    )}" />
+        `;
+                });
+            }
+
+            write(ev) {
+                const initPos = this._getSVGPos(ev);
+                let lastDate = Date.now();
+                const path = [{ ...initPos, timeToLast: 0 }];
+                this.paths.push(path);
+                const i = this.paths.length - 1;
+                const drawLine = (ev) => {
+                    const nextPos = this._getSVGPos(ev);
+                    this.paths[i].push({
+                        ...nextPos,
+                        timeToLast: Date.now() - lastDate,
+                    });
+                    lastDate = Date.now();
+                    this.requestUpdate();
+                };
+
+                const stopLine = (ev) => {
+                    this.removeEventListener("mousemove", drawLine);
+                    // finish path
+                };
+                this.addEventListener("mousemove", drawLine);
+                this.addEventListener("mouseup", stopLine);
+                this.addEventListener("mouseleave", stopLine);
+            }
+
+            _getSVGPos(ev) {
+                const svg = this.shadowRoot.querySelector("svg");
+                const pt = svg.createSVGPoint();
+                pt.x = ev.clientX;
+                pt.y = ev.clientY;
+                const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+                return {
+                    x: svgP.x,
+                    y: svgP.y,
+                };
+            }
+        }
+
+        customElements.define("svg-calli", Calligraphy);
+    </script>
+
+    <svg-calli></svg-calli>
+</body>
+
+</html>

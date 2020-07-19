@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <h1>Tabellenkalkulation mit ContentEditable</h1>
+    <table id="table" style="border:3">
+        <col width="130">
+        <col width="130">
+        <thead>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="pt-3-half" contenteditable='true'> a = 			</td>
+                <td class="pt-3-half" contenteditable='true' id="first"> 3 </td>
+            </tr>
+            <tr>
+                <td class="pt-3-half" contenteditable='true'>b 				=</td>
+                <td class="pt-3-half" contenteditable='true' id="second">4 </td>
+            </tr>
+            <tr>
+                <td class="pt-3-half" contenteditable='true'>Sum 				=</td>
+                <td class="pt-3-half" contenteditable='true' 				id="su"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Async</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        const check = async () => {
+            const ta = await fetch('TextA.txt').then(respone => respone.text());
+            const tb = await fetch('TextB.txt').then(respone => respone.text());
+
+            return ta + tb;
+        }
+
+        check().then((respone) => {
+
+            document.getElementById('result').innerHTML = respone;
+        });
+    </script>
+</body>
+
+</html>

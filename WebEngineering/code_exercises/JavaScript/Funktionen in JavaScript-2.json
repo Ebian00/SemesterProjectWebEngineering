@@ -1,0 +1,254 @@
+
+----publish/subscribe_function()----
+
+function pubsub(){
+  const  subscribers =  [];
+   const size = function() {
+    return subscribers.length;
+  };
+  const publish = function(publication) {
+    subscribers.forEach(subscriber => {
+        subscriber(publication);
+    });
+  };
+  const subscribe = function(subscriber){
+    subscribers.push(subscriber)
+  }
+  return Object.freeze({
+    publish,
+    size,
+    subscribe
+  });
+}
+
+const ps = pubsub();
+ps.subscribe(console.log);
+ps.subscribe(console.log);
+ps.publish('lets check ist out') 
+
+-----------------------------------------------------------------
+
+----gensym_function()----
+
+let genG = gensymf('G');
+console.log(genG() );
+console.log(genG() );
+@param {string} symbol
+@return {function}
+*/
+function gensymf(symbol) {
+  let index = genFrom(1);
+  return function() {
+    return `${symbol}${index()}`;
+  };
+}
+
+
+-----------------------------------------------------------------
+
+----fib()_function()----
+
+let fib = fibonaccif(0, 1);
+console.log(fib()) 
+console.log(fib())
+console.log(fib())
+console.log(fib())
+console.log(fib())
+console.log(fib())
+
+function fibonaccif(num1, num2) {
+  Boolean: first = false;
+  Boolean: second = false;
+  return function() {
+    if (!first) {
+      first = true;
+      return num1;
+    }
+    if (!second) {
+      second = true;
+      return num2;
+    }
+    let next = first + second;
+    first = second;
+    second = next;
+    return next;
+  };
+}
+
+-----------------------------------------------------------------
+
+----addg()_function()----
+
+function addg(param) {
+  if (param === undefined) {
+    return param;
+  }
+  return function(param2) {
+    if (param2 === undefined) {
+      return param;
+    }
+    return addg(param + param2);
+  };
+}
+console.log(applyg(add)(3)(4)(5)() )            
+console.log(applyg(add)(1)(2)(4)(8)() )
+
+-----------------------------------------------------------------
+
+----applyg()_function()----
+
+function applyg(fnc){
+return function addg(param) {
+  if (param === undefined) {
+    return param;
+  }
+  return function(param2) {
+    if (param2 === undefined) {
+      return param;
+    }
+    return addg(fnc(param ,param2));
+  };
+}
+}
+function add(a, b) {
+  return a + b;
+}
+function sub(a, b) {
+  return a - b;
+}
+
+
+-----------------------------------------------------------------
+
+----object()_function()----
+
+console.log(JSON.stringify(m(1))) ;
+console.log(JSON.stringify(m(Math.PI, "pi")));
+
+
+function m(value, source) {
+  return {
+    value,
+    source: typeof source === 'string' ? source : String(value),
+  };
+}
+
+-----------------------------------------------------------------
+
+----addm()_function()----
+
+console.log(JSON.stringify(addmTwo(m(3), m(4)))) ;
+console.log(JSON.stringify(addmTwo(m(1), m(Math.PI, "pi"))));
+
+
+function addmTwo(m1, m2) {
+  return m(
+    add(m1.value, m2.value),
+    `(${m1.source}+${m2.source})`
+  );
+}
+function m(value, source) {
+  return {
+    value,
+    source: typeof source === 'string' ? source : String(value),
+  };
+}
+function add(a, b) {
+  return a + b;
+}
+
+
+-----------------------------------------------------------------
+
+----binarymf()_function()----
+
+let addmb = liftmbM(addb, '+');
+console.log(JSON.stringify(addmb(m(3), m(4))))
+
+
+function liftmbM(binary, op) {
+  return function(m1, m2) {
+    return m(
+      binary(m1.value, m2.value),
+      `(${m1.source}${op}${m2.source})`
+    );
+  };
+}
+function addb(a, b) {
+  return a + b;
+}
+
+
+-----------------------------------------------------------------
+
+----binarymf2()_function()----
+
+let addmb = binarymf(addb, '+')
+console.log(JSON.stringify(addmb(3, 4)) )// '{"value":7,"source":"(3+4)"}'
+
+function binarymf(binary, op) {
+  return function(a, b) {
+    if (typeof a === 'number') {
+      a = m(a);
+    }
+    if (typeof b === 'number') {
+      b = m(b);
+    }
+    return m(
+      binary(a.value, b.value),
+      '(' + a.source + op + b.source + ')'
+    );
+  };
+}
+
+
+-----------------------------------------------------------------
+
+----unarymf()_function()----
+
+let addm = binarymf (add, '+');
+
+function binarymf (func, op) {
+  const toMs = args => args.map(arg => typeof arg === 'number' ? m(arg) : arg);
+  return function(...args) {
+    const ms = toMs(args);
+    const msValues = extract(ms, 'value');
+    const msSources = extract(ms, 'source');
+    const value = func(...msValues);
+    const source = `(${msSources.join(op)})`;
+    return m(value, source);
+  };}
+
+
+-----------------------------------------------------------------
+
+----hypa()_function()----
+
+function hypa(a , b){
+  return(Math.sqrt((a * a) + (b * b)));
+}
+
+
+-----------------------------------------------------------------
+
+----exp()_function()----
+
+function exp(value) {
+  if (Array.isArray(value)) {
+    const [func, ...args] = value;
+    return func(...args);
+  }
+  return value;
+}
+
+
+-----------------------------------------------------------------
+
+----store()_function()----
+
+var check;
+console.log(fnc(check,4));
+function fnc(a , value){
+  return a = value;
+}
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <h1>EinkaufsListe</h1>
+    <label> Enter a new Item:</label>
+    <input type="text">
+    <button>Add</button>
+    <ul></ul>
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML =
+                h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
+
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+        const list = document.querySelector('ul');
+        button.onclick = function () {
+            const value = input.value;
+            const listItem = document.createElement('li');
+            list.appendChild(listItem);
+            listItem.innerHTML = `${input.value} <span id="txt"> </span> <button> Stop</button> `; //templateString
+            startTime()
+            input.value = '';
+            const deleteButton = listItem.querySelector('button');
+            deleteButton.onclick = function () {
+                list.removeChild(listItem)
+                input.focus();
+            }
+        }
+    </script>
+</body>
+
+</html>

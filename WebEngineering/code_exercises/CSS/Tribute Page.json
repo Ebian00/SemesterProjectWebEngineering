@@ -1,0 +1,39 @@
+
+   <!DOCTYPE html>
+     <html>
+     <head>
+     <title>Tribute Page</title>
+     <style>
+     .header{
+      background-color: grey;
+      position : static ;
+       text-color: black;
+       margin: 1em;
+       padding: 1em;
+       text-align: center;
+       flaot: right;
+       font-family: Arial, Helvetica, sans-serif;
+     }
+     body {
+         width: 100%;
+         height: 100%;
+       background-color: white;
+       text-align: center;
+       color: black;
+       font-family: Arial, Helvetica, sans-serif;
+     }
+     </style>
+     </head>
+     <body>
+     <div style='width : 100%; height:100%'>
+     
+     <div class= header>
+     <h1 style= ' margin: 0;
+       padding: 0;' >Dr. Norman Borlaug</h1>
+     <p style= ' margin: 0;
+       padding: 0;'>The man who saves a billion lives</p>
+     </div>
+     <img src='https://c2.staticflickr.com/4/3689/10613180113_fdf7bcd316_b.jpg' alt='Avatar' >
+     </div>
+     </body>
+     </html>

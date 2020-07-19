@@ -1,0 +1,128 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>vue_with_ui</title>
+  </head>
+  <body>
+    <noscript>
+      
+    </noscript>
+    <div id="app"></div>
+  
+  </body>
+</html>
+
+------------------------counter.vue------------------------
+<template>
+    <div>
+        <h2>My-Counter</h2>
+        {{counter}} 
+        <h2>Number of clicks</h2> 
+        {{clicks}}
+    <br>
+    <button @click="incrementCounter">increment counter</button>
+    <button @click="decrementCounter">decrement counter</button>
+
+   
+    </div>
+  
+
+</template>
+
+<script>
+ export default {
+    methods: {
+      incrementCounter () {
+        this.$store.dispatch('inrementAction', 1),
+        this.$store.dispatch('countClicks',1)
+      },
+       decrementCounter () {
+        this.$store.dispatch('derementAction', 1)
+        this.$store.dispatch('countClicks',1)
+      }
+    },
+    computed: {
+      counter () {
+        return this.$store.getters.counter
+      },
+       clicks () {
+        return  this.$store.getters.counts
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>
+
+---------------------index.js code ---------------------
+index.js
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+export const store = new Vuex.Store({
+    state: {
+   
+    count: 0,
+    count2: 0
+  },
+
+
+mutations: {
+    incrementCounter (state, payload) {
+      state.count += payload
+      
+    },
+    decrementCounter (state, payload) {
+        state.count -= payload
+      },
+    countClick(state,payload){
+        state.count2 += payload
+    }
+  
+  },
+
+  actions: {
+    inrementAction ({commit}, payload) {
+      commit('incrementCounter', payload)
+  
+    },
+    derementAction ({commit}, payload) {
+        commit('decrementCounter', payload)
+      },
+      countClicks ({commit}, payload) {
+        commit('countClick', payload)
+      } 
+
+  },
+
+  getters: {
+    counter (state) {
+      return state.count
+    },
+    counts (state) {
+        return state.count2
+      }
+  }
+}
+)
+
+main.js 
+import Vue from 'vue'
+import App from './App.vue'
+import Vuex from 'vuex'
+import { store } from './store'
+
+
+Vue.config.productionTip = false
+Vue.use(Vuex)
+new Vue({
+  render: h => h(App),
+  store,
+}).$mount('#app')

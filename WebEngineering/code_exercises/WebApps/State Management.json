@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            color: #333333;
+            display: grid;
+            margin: 5px;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: 80px 1fr 1fr 50px;
+            min-height: 90vh;
+        }
+
+        header,
+        nav,
+        main,
+        article,
+        section,
+        aside,
+        footer {
+            color: white;
+            float: left;
+            position: justify;
+            font-size: 10px bold;
+            font-family: sans-serif;
+            padding: 7px;
+        }
+
+        header {
+            border-radius: 30px 30px 0px 0px;
+            background-color: #C14F4F;
+            grid-column: 1 / span 3;
+            grid-row: 1;
+
+        }
+
+        nav {
+            background-color: #C28281;
+            grid-column: 1;
+            grid-row: 2 / 4;
+        }
+
+        article {
+            background-color: #6A9EBD;
+            grid-column: 2;
+            grid-row: 2 / 4;
+        }
+
+        a {
+            color: white;
+        }
+
+        aside {
+            background-color: #C28281;
+            grid-column: 3;
+            grid-row: 2 / 4;
+        }
+
+        footer {
+            border-radius: 0px 0px 30px 30px;
+            background-color: #000000;
+            position: justify;
+            grid-column: 1 / span 3;
+            grid-row: 4;
+        }
+
+        .button1 {
+            margin: 5px;
+            font-size: 10px;
+            background-color: #6A709F;
+            border: 1px solid;
+            color: white;
+            padding: 5px 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header> Header
+        <x-update-array-properties></x-update-array-properties>
+    </header>
+    <nav>
+        <ul id="ulbu" style="list-style-type:none"></ul>
+    </nav>
+    <aside id="news">
+        <a href=""></a>
+    </aside>
+    <article>
+        <div id='text'></div>
+    </article>
+
+    <footer>
+        <p>Footer:
+            <a href="#news">Sitemap</a>
+            <a href="#news">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a></p>
+    </footer>
+    </head>
+
+    <body>
+        < <script type="module">
+            import { html , render} from 'https://unpkg.com/lit-html/lit-html.js';
+            import { component, useReducer,useState, virtual } from 'https://unpkg.com/haunted/haunted.js';
+
+            const initialState = {count: null};
+
+            function reducer(state, action) {
+            switch (action.type) {
+            case 'HTLM': return {count: htmlButton()};
+            case 'CSS': return {count: cssButton()};
+            case 'JS': return {count: jsButton()};
+            }
+            }
+
+            function choise() {
+            const [state, dispatch] = useReducer(reducer, initialState);
+
+            return html`<header>
+                <button class='button1' @click=${()=> dispatch({type: 'HTLM'})}>HTML</button>
+                <button class='button1' @click=${()=> dispatch({type: 'CSS'})}>CSS</button>
+                <button class='button1' @click=${()=> dispatch({type: 'JS'})}>JS</button>
+            </header>
+            `;
+            }
+
+            const htmlButton = virtual(() => {
+
+            var myArray = ['headings','paragraphs', 'links','images', 'tables'];
+            debugger
+            return html`
+
+
+            <ul style="list-style-type:none">${myArray.map(item => html`<li> <button id=${item} class='button1'
+                        @click=${destext()}> ${item} </button> </li>`)}</ul>
+            `;
+            });
+
+            const cssButton = virtual(() => {
+
+            var myArray = ['selectors','colors', 'boxes', 'display', 'float'];
+            return html`
+            <ul style="list-style-type:none">${myArray.map(item => html`<li> <button id=${item} class='button1'
+                        @click=${destext()}> ${item} </button> "</li>`)}</ul>
+            `;
+            });
+
+            const jsButton = virtual(() => {
+
+            var myArray = ['functions','objects', 'scope','events', 'hoisting','strict_mode', 'Json'];
+            return html`
+            <ul style="list-style-type:none">${myArray.map(item => html`<li> <button id=${item} class='button1'
+                        @click=${destext()}> ${item} </button> "</li>`)}</ul>
+            `;
+            });
+
+            const distext = virtual( (someText) => {
+
+
+            return html`
+            <div>${someText} </div>
+            `;
+            });
+            customElements.define('my-guz', component(choise));
+            </script>
+            <header> Header
+            </header>
+            <nav>
+                <my-guz></my-guz>
+            </nav>
+            <aside id="news">
+                <a href=""></a>
+            </aside>
+            <article>
+                <div id='text'></div>
+            </article>
+
+            <footer>
+                <p>Footer:
+                    <a href="#news">Sitemap</a>
+                    <a href="#news">Home</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#about">About</a></p>
+
+            </footer>
+
+    </body>
+
+</html>

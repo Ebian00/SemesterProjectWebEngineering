@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <h1>EinkaufsListe</h1>
+    <label> Enter a new Item:</label>
+    <input type="text">
+    <button>Add</button>
+    <ul></ul>
+    <script>document.getElementById("table").addEventListener("input", function () {
+            var first = parseInt(document.getElementById("table").rows[0].cells.namedItem("first").innerHTML)
+            var second = parseInt(document.getElementById("table").rows[1].cells.namedItem("second").innerHTML);
+
+            document.getElementById("su").innerHTML = first + second;
+        }, false);
+    </script>
+</body>
+
+</html>

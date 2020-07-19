@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>check</title>
+</head>
+
+<body>
+    <script type="module">
+        import {
+            LitElement,
+            html,
+            css,
+            svg,
+        } from "https://unpkg.com/lit-element/lit-element.js?module";
+
+        class Barchart extends LitElement {
+            static get properties() {
+                return {
+                    data: { type: Array[Object] },
+                    text: { type: Array[Object] },
+                };
+            }
+
+            constructor() {
+                super();
+            }
+
+            render() {
+                return svg`<svg  version="1.1"  xmlns="http://www.w3.org/2000/svg" width="421" height="151">
+    <path id = "guz" d="M50 50  C 100 0, 150 200, 200 50" stroke="black" fill="transparent"/>
+</svg>
+
+ `;
+            }
+        }
+
+        customElements.define("bar-chart", Barchart);
+    </script>
+
+    <bar-chart></bar-chart>
+    <script>
+        const path = document..getElementById('guz');
+        path.addEventListener("mousemove", event => {
+            if (event.x < 125) {
+                path.setAttribute('d', 'M50 50 C ' + event.clientX + ' ' + event.clientY + ', 150 80, 200 50');
+
+            }
+            else {
+                path.setAttribute('d', 'M50 50 C 100 0 , +' + event.clientX + ' ' + event.clientY + ', 200 50');
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Promises</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        Promise.all([
+            fetch('TextA.txt').then(x => x.text()),
+            fetch('TextB.txt').then(x => x.text())
+        ]).then(([ta, tb]) => {
+
+            document.getElementById('result').innerHTML = ta + tb;
+        });
+    </script>
+</body>
+
+</html>

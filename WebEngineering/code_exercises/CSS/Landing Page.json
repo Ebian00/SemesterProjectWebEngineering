@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+
+
+ h1 {
+  text-align: center;
+  font-size: 2em;
+  padding: 1.5% 0;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display : flex;
+  justify-content: center;
+}
+.container{
+  display: grid;
+  grid-template-columns: auto-fit 50% 50%;
+  grid-gap: 30px;
+  flex: 1;
+  text-align: center;
+}
+
+p {
+	font-size: 20px;
+}
+.footer{
+	padding:20px;
+	flex-direction: row;
+	justify-content: center;
+	background-color: #363636;
+}
+  body{
+ 	background-color: #EBEAE6;
+	margin:0;
+  }
+ nav {
+	padding:20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: #363636;
+}
+a {
+	text-decoration: none;
+	text-align: center;
+	padding:10px 10px;
+}
+  nav a {
+	padding:10px;
+	color:#fff;
+}
+  nav a:hover {
+    background-color: #3daadd;
+    text-decoration: none;
+}
+  .main {
+	display:flex;
+	flex-wrap: wrap;
+	text-align: center;
+    padding:10px;
+}
+#main-img {
+	max-width:300px;
+	border:1px solid #333;
+	border-radius:10px;
+}
+
+.main-row > div > img {
+	max-width:350px;
+}
+
+.button1 {
+  
+	font-size: 20px;
+  background-color: #F88E37; /* Green */
+  border: none;
+  color: white;
+  padding:8px 70px;
+  text-align: center;
+  text-decoration: none;
+ border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+  .button2 {
+	font-size: 20px;
+  text-align: center;
+  background-color: #F88E37; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 120px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+    border-radius: 5px;
+}
+
+.col {
+	flex:1;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+<header> 
+  <nav>
+  <a class="active" >The book series</a>
+  <a href="#news">Testimonials</a>
+  <a href="#contact">The Author</a>
+  <a href="#about">Ftee resources</a>
+</nav>
+ <header> 
+<div >
+  <h1 >You dont know JavaScript</h1>
+  <div class="main">
+    <div class="col">
+    <img id="main-img" src=" https://kaul.inf.h-brs.de/data/2019/img/landing-img.png"  >
+   </div>
+   <div class="col">
+     <p>Don't just drift through Javascript. </p>
+     <br>
+     <p>Understand how Javascript works</p>
+     <br>
+     <p>Start your journey through the bumpy side of Javascript</p>
+     <br>
+     <button class="button1">Order your copy now </button>
+				
+    </div>
+ 
+  </div>
+  <div class="footer">
+   <p style=" color: white">The first ebook in the book series is absolutely free.</p>
+         
+
+       <button class="button2">
+				Find out more about this offer
+			</button>         
+  </div>
+  </div>
+   </div>
+<body>
+</html>

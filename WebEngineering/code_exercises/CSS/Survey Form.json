@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  background-color: #ddf49c;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.8em;
+  color: #081409;
+}
+ h1 {
+  text-align: center;
+  font-size: 2em;
+  padding: 1.5% 0;
+}
+.form {
+  max-width: 60em;
+  margin: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 5%;
+}
+.text {
+  text-align: center;
+  padding: 3%;
+  font-size: 1.5em;
+}
+.partition {
+  border-width: 0;
+  padding-top: 1%;
+}
+.group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1%;
+}
+.dropdownlist {
+  height: 2.3em;
+}
+.right {
+  width: 35%;
+}
+label.left{
+  width: 45%;
+  text-align: right;
+  padding-right: 5%;
+  font-size: 1.2em;
+  height: 2em;
+  padding-bottom: 2px;
+}
+.liste {
+  list-style-type: none;
+}
+
+
+
+</style>
+</head>
+  <header>
+  <h1>Survey Form</h1>
+</header>
+
+<div class="form">
+  <p  class="text">Let us know how we can improve freeCodeCamp</p>
+
+  <form >
+
+    <fieldset class="partition">
+      <div class="group">
+        <label class="left" id="name-label" for="name">* Name:</label>
+        <input class="right" type="text" name="name" placeholder="Enter your name" id="name" required>
+      </div>
+      <div class="group">
+        <label class="left" >* Email:</label>
+        <input class="right" type="email" placeholder="Enter your email">
+      </div>
+      <div class="group">
+        <label class="left" >* Age:</label>
+        <input class="right" type="number"   placeholder="Age">
+      </div>
+    </fieldset>
+
+    <fieldset class="partition">
+      <div class="group">
+        <label class="left dropdown" for="dropdown">Which option best describes your current role?</label>
+        <select class="right">
+          <option selected disabled >Select an option</option>
+          <option value="student" >Student</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset class="partition">
+      <div class="group">
+        <label class="left">How likely is that you would recommend freeCodeCamp to a friend?</label>
+        <div class="right">
+          <ul class="liste">
+            <li><label><input type="radio"> Definitly</label></li>
+            <li><label><input type="radio"> Maybe</label></li>
+            <li><label><input type="radio"> Not sure</label></li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="partition">
+      <div class="group">
+        <label  class="left">What do you like most in FCC</label>
+        <select  class="right dropdown">
+          <option >Select an option</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset class="partition">
+      <div class="group">
+        <label class="left">Things that should be improved in the future(Check all that apply):</label>
+        <ul class="liste right">
+          <li><label for="frontEnd"><input type="checkbox"> Front-End Projects</label></li>
+          <li><label for="backEnd"><input type="checkbox"> Back End Project</label></li>
+          <li><label for="dataVisualization"><input type="checkbox"> Data Visualization</label></li>
+        </ul>
+      </div>
+    </fieldset>
+   
+  </form>
+</div>
+</html>

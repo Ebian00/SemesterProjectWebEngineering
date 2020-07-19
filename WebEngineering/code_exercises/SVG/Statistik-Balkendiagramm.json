@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>check</title>
+</head>
+
+<body>
+    <script type="module">
+        import {
+            LitElement,
+            html,
+            css,
+            svg,
+        } from "https://unpkg.com/lit-element/lit-element.js?module";
+
+        class Barchart extends LitElement {
+            static get properties() {
+                return {
+                    data: { type: Array[Object] },
+                    text: { type: Array[Object] },
+                };
+            }
+
+            constructor() {
+                super();
+            }
+
+            render() {
+                return html`<svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            width="421"
+            height="151"
+          >
+            <text
+              x="10"
+              y="50"
+              font-size="12"
+              font-family="Arial"
+              fill="#404040"
+            >
+              200
+            </text>
+            <rect
+              x="50"
+              y="35"
+              width="200"
+              height="20"
+              rx="3"
+              ry="3"
+              fill="#2A7BB4"
+            >
+              <animate
+                attributeName="x"
+                from="0"
+                to="200"
+                dur="5s"
+                fill="freeze"
+              />
+            </rect>
+            <text
+              x="10"
+              y="80"
+              font-size="12"
+              font-family="Arial"
+              fill="#404040"
+            >
+              280
+            </text>
+            <rect
+              x="50"
+              y="65"
+              width="280"
+              height="20"
+              rx="3"
+              ry="3"
+              fill="#2A7BB4"
+            >
+              <animate
+                attributeName="width"
+                from="0"
+                to="280"
+                dur="5s"
+                fill="freeze"
+              />
+            </rect>
+            <text
+              x="10"
+              y="110"
+              font-size="12"
+              font-family="Arial"
+              fill="#404040"
+            >
+              90
+            </text>
+            <rect
+              x="50"
+              y="95"
+              width="90"
+              height="20"
+              rx="3"
+              ry="3"
+              fill="#B4472A"
+            >
+              <animate
+                attributeName="width"
+                from="0"
+                to="90"
+                dur="5s"
+                fill="freeze"
+              />
+            </rect>
+            <line
+              x1="51"
+              y1="10"
+              x2="51"
+              y2="140"
+              stroke-width="2"
+              stroke="#808080"
+            />
+          </svg> `;
+            }
+
+            _getInput() {
+                const input = this.shadowRoot.getElementById("messageInput");
+                const value = input.value;
+                input.value = "";
+                return value;
+            }
+
+            _onMessageSubmitA() {
+                const message = this._getInput();
+                if (message && message.length) {
+                    this.messages.push(message);
+                    this.requestUpdate();
+                }
+            }
+
+            _onMessageSubmitB() {
+                const message = this._getInput();
+                if (message && message.length) {
+                    this.messages = [...this.messages, message];
+                }
+            }
+            static get styles() {
+                return css`
+            #statSvg rect {
+              opacity: 0.9;
+            }
+            #statSvg rect:hover {
+              opacity: 0.6;
+            }
+          `;
+            }
+        }
+
+        customElements.define("bar-chart", Barchart);
+    </script>
+
+    <bar-chart></bar-chart>
+    <svg version="1.1" id="statSvg" xmlns="http://www.w3.org/2000/svg" width="421" height="151">
+        <text x="10" y="50" font-size="12" font-family="Arial" fill="#404040">
+            200
+        </text>
+        <rect x="50" y="35" width="200" height="20" rx="3" ry="3" fill="#2A7BB4">
+            <animate attributeName="width" from="0" to="200" dur="5s" fill="freeze" />
+        </rect>
+        <text x="10" y="80" font-size="12" font-family="Arial" fill="#404040">
+            280
+        </text>
+        <rect x="50" y="65" width="280" height="20" rx="3" ry="3" fill="#2A7BB4">
+            <animate attributeName="width" from="0" to="280" dur="5s" fill="freeze" />
+        </rect>
+        <text x="10" y="110" font-size="12" font-family="Arial" fill="#404040">
+            90
+        </text>
+        <rect x="50" y="95" width="90" height="20" rx="3" ry="3" fill="#B4472A">
+            <animate attributeName="width" from="0" to="90" dur="5s" fill="freeze" />
+        </rect>
+        <line x1="51" y1="10" x2="51" y2="140" stroke-width="2" stroke="#808080" />
+    </svg>
+</body>
+
+</html>
